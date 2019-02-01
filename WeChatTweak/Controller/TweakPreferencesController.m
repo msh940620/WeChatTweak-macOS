@@ -15,6 +15,7 @@
 @property (weak) IBOutlet NSPopUpButton *autoAuthButton;
 @property (weak) IBOutlet NSPopUpButton *notificationTypeButton;
 @property (weak) IBOutlet NSPopUpButton *compressedJSONEnabledButton;
+@property (weak) IBOutlet NSPopUpButton *enableVOIPButton;
 
 @end
 
@@ -37,6 +38,7 @@
     [self.autoAuthButton selectItemAtIndex:enabledAutoAuth ? 1 : 0];
     [self.notificationTypeButton selectItemAtIndex:notificationType];
     [self.compressedJSONEnabledButton selectItemAtIndex:configManager.compressedJSONEnabled ? 0 : 1];
+    [self.enableVOIPButton selectItemAtIndex:configManager.voipEnable ? 0 : 1];
 }
 
 #pragma mark - Event method
@@ -55,6 +57,11 @@
 - (IBAction)switchCompressedJSONEnabledAction:(NSPopUpButton *)sender {
     BOOL enabled = sender.indexOfSelectedItem == 0;
     WTConfigManager.sharedInstance.compressedJSONEnabled = enabled;
+}
+
+- (IBAction)enableVoipButtonAction:(NSPopUpButton *)sender {
+    BOOL enabled = sender.indexOfSelectedItem == 0;
+    WTConfigManager.sharedInstance.voipEnable = enabled;
 }
 
 #pragma mark - MASPreferencesViewController

@@ -9,6 +9,7 @@
 #import "WTConfigManager.h"
 
 static NSString * const WeChatTweakCompressedJSONEnabledKey = @"WeChatTweakCompressedJSONEnabledKey";
+static NSString * const WeChatTweakVoipEnabledKey = @"WeChatTweakVoipEnabledKey";
 
 @interface WTConfigManager()
 
@@ -34,6 +35,11 @@ static NSString * const WeChatTweakCompressedJSONEnabledKey = @"WeChatTweakCompr
         } else {
             _compressedJSONEnabled = YES;
         }
+        if ([userDefaults objectForKey:WeChatTweakVoipEnabledKey]) {
+            _voipEnable = [userDefaults boolForKey:WeChatTweakVoipEnabledKey];
+        } else {
+            _voipEnable = YES;
+        }
     }
     return self;
 }
@@ -43,6 +49,12 @@ static NSString * const WeChatTweakCompressedJSONEnabledKey = @"WeChatTweakCompr
 - (void)setCompressedJSONEnabled:(BOOL)compressedJSONEnabled {
     _compressedJSONEnabled = compressedJSONEnabled;
     [NSUserDefaults.standardUserDefaults setBool:compressedJSONEnabled forKey:WeChatTweakCompressedJSONEnabledKey];
+    [NSUserDefaults.standardUserDefaults synchronize];
+}
+
+- (void)setVoipEnable:(BOOL)voipEnable {
+    _voipEnable = voipEnable;
+    [NSUserDefaults.standardUserDefaults setBool:voipEnable forKey:WeChatTweakVoipEnabledKey];
     [NSUserDefaults.standardUserDefaults synchronize];
 }
 

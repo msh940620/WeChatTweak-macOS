@@ -62,6 +62,8 @@ static void __attribute__((constructor)) tweak(void) {
     [objc_getClass("CUtility") jr_swizzleClassMethod:NSSelectorFromString(@"HasWechatInstance") withClassMethod:@selector(tweak_HasWechatInstance) error:nil];
     [objc_getClass("CUtility") jr_swizzleClassMethod:NSSelectorFromString(@"FFSvrChatInfoMsgWithImgZZ") withClassMethod:@selector(tweak_HasWechatInstance) error:nil];
     [objc_getClass("MASPreferencesWindowController") jr_swizzleMethod:NSSelectorFromString(@"initWithViewControllers:") withMethod:@selector(tweak_initWithViewControllers:) error:nil];
+    [objc_getClass("MMComposeInputViewController") jr_swizzleMethod:NSSelectorFromString(@"showVoiceChat:") withMethod:@selector(tweak_showVoiceChat:) error:nil];
+    [objc_getClass("MMComposeInputViewController") jr_swizzleMethod:NSSelectorFromString(@"showVideoChat:") withMethod:@selector(tweak_showVideoChat:) error:nil];
 
     objc_property_attribute_t type = { "T", "@\"NSString\"" }; // NSString
     objc_property_attribute_t atom = { "N", "" }; // nonatomic
@@ -168,6 +170,20 @@ static void __attribute__((constructor)) tweak(void) {
             }
         }
     });
+}
+
+- (void)tweak_showVoiceChat:(id)arg1 {
+    if (WTConfigManager.sharedInstance.voipEnable) {
+        [self tweak_showVoiceChat:arg1];
+    }
+    return;
+}
+
+- (void)tweak_showVideoChat:(id)arg1 {
+    if (WTConfigManager.sharedInstance.voipEnable) {
+        [self tweak_showVideoChat:arg1];
+    }
+    return;
 }
 
 #pragma mark - Mutiple Instance

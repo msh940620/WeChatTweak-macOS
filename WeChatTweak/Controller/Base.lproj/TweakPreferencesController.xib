@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="autoAuthButton" destination="5by-EJ-3f2" id="VIV-sZ-ybx"/>
                 <outlet property="compressedJSONEnabledButton" destination="ylY-lF-oFq" id="yqW-Bl-hNf"/>
+                <outlet property="enableVOIPButton" destination="WtW-4B-IZx" id="sgh-PX-aw5"/>
                 <outlet property="notificationTypeButton" destination="6x2-KV-p8w" id="Kfn-2a-Yup"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -17,11 +18,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="430" height="123"/>
+            <rect key="frame" x="0.0" y="0.0" width="430" height="156"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RFE-oR-GRm">
-                    <rect key="frame" x="58" y="86" width="130" height="17"/>
+                    <rect key="frame" x="58" y="119" width="130" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="right" title="Auto login:" usesSingleLineMode="YES" id="UiV-zj-l6I">
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -29,7 +30,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B87-eD-uhI">
-                    <rect key="frame" x="10" y="53" width="178" height="17"/>
+                    <rect key="frame" x="10" y="86" width="178" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="right" title="Message recall notification:" usesSingleLineMode="YES" id="UKv-CM-nGt">
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -37,7 +38,7 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5by-EJ-3f2">
-                    <rect key="frame" x="192" y="81" width="91" height="25"/>
+                    <rect key="frame" x="192" y="114" width="91" height="25"/>
                     <popUpButtonCell key="cell" type="push" title="Disabled" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="axesIndependently" inset="2" selectedItem="Vcv-eD-OM9" id="8qB-Jj-tlv">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -57,7 +58,7 @@
                     </connections>
                 </popUpButton>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6x2-KV-p8w">
-                    <rect key="frame" x="192" y="48" width="92" height="25"/>
+                    <rect key="frame" x="192" y="81" width="92" height="25"/>
                     <popUpButtonCell key="cell" type="push" title="Inherited" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="axesIndependently" inset="2" selectedItem="gec-CY-E1x" id="wek-GT-N5V">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -79,16 +80,8 @@
                         <action selector="switchNotificationTypeAction:" target="-2" id="xjO-Ck-wem"/>
                     </connections>
                 </popUpButton>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zsd-Bb-6l4">
-                    <rect key="frame" x="18" y="20" width="170" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="right" title="Alfred JSON compressing:" usesSingleLineMode="YES" id="jHw-2a-B2t">
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ylY-lF-oFq">
-                    <rect key="frame" x="192" y="15" width="91" height="25"/>
+                    <rect key="frame" x="192" y="48" width="91" height="25"/>
                     <popUpButtonCell key="cell" type="push" title="Disabled" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="axesIndependently" inset="2" selectedItem="MEN-Kg-wfj" id="taL-8q-Quu">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -108,16 +101,50 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kNm-y0-HmG">
-                    <rect key="frame" x="288" y="20" width="100" height="17"/>
+                    <rect key="frame" x="288" y="53" width="100" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Need to restart" usesSingleLineMode="YES" id="2vl-mc-m3L">
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7wa-9l-gBc">
+                    <rect key="frame" x="58" y="20" width="130" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="right" title="VOIP button enable:" usesSingleLineMode="YES" id="ful-c9-B32">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WtW-4B-IZx">
+                    <rect key="frame" x="192" y="15" width="91" height="25"/>
+                    <popUpButtonCell key="cell" type="push" title="Disabled" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="axesIndependently" inset="2" selectedItem="COd-ec-Jtv" id="SyE-e2-axL">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="JvV-Z8-jeq">
+                            <items>
+                                <menuItem title="Enabled" id="Q6v-hm-eb7">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="Disabled" state="on" id="COd-ec-Jtv">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zsd-Bb-6l4">
+                    <rect key="frame" x="18" y="53" width="170" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="right" title="Alfred JSON compressing:" usesSingleLineMode="YES" id="jHw-2a-B2t">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="B87-eD-uhI" firstAttribute="trailing" secondItem="RFE-oR-GRm" secondAttribute="trailing" id="3p1-WF-TYr"/>
+                <constraint firstItem="7wa-9l-gBc" firstAttribute="trailing" secondItem="zsd-Bb-6l4" secondAttribute="trailing" id="4ej-4o-FqN"/>
                 <constraint firstItem="zsd-Bb-6l4" firstAttribute="top" secondItem="B87-eD-uhI" secondAttribute="bottom" constant="16" id="62W-9V-E2u"/>
                 <constraint firstItem="RFE-oR-GRm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="CWK-cO-DBz"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5by-EJ-3f2" secondAttribute="trailing" constant="12" id="KRA-o3-Ab4"/>
@@ -128,16 +155,21 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6x2-KV-p8w" secondAttribute="trailing" constant="12" id="VbQ-1W-cmx"/>
                 <constraint firstItem="6x2-KV-p8w" firstAttribute="leading" secondItem="5by-EJ-3f2" secondAttribute="leading" id="WSG-53-r8r"/>
                 <constraint firstItem="zsd-Bb-6l4" firstAttribute="trailing" secondItem="RFE-oR-GRm" secondAttribute="trailing" id="Wlh-6X-UJN"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WtW-4B-IZx" secondAttribute="trailing" constant="12" id="d5K-kS-z2x"/>
                 <constraint firstItem="kNm-y0-HmG" firstAttribute="centerY" secondItem="ylY-lF-oFq" secondAttribute="centerY" id="eMk-RJ-Mbw"/>
+                <constraint firstItem="7wa-9l-gBc" firstAttribute="top" secondItem="zsd-Bb-6l4" secondAttribute="bottom" constant="16" id="eWY-Gm-7jQ"/>
                 <constraint firstItem="6x2-KV-p8w" firstAttribute="centerY" secondItem="B87-eD-uhI" secondAttribute="centerY" id="gqp-om-e0O"/>
+                <constraint firstItem="7wa-9l-gBc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="12" id="h6O-OC-847"/>
                 <constraint firstItem="ylY-lF-oFq" firstAttribute="centerY" secondItem="zsd-Bb-6l4" secondAttribute="centerY" id="h7g-u6-ZwV"/>
                 <constraint firstItem="zsd-Bb-6l4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="12" id="icK-YZ-ZLo"/>
                 <constraint firstItem="B87-eD-uhI" firstAttribute="top" secondItem="RFE-oR-GRm" secondAttribute="bottom" constant="16" id="lG1-vw-epo"/>
+                <constraint firstItem="WtW-4B-IZx" firstAttribute="leading" secondItem="ylY-lF-oFq" secondAttribute="leading" id="pxf-Yj-AM1"/>
                 <constraint firstItem="kNm-y0-HmG" firstAttribute="leading" secondItem="ylY-lF-oFq" secondAttribute="trailing" constant="10" id="urr-9v-Okd"/>
                 <constraint firstItem="5by-EJ-3f2" firstAttribute="leading" secondItem="RFE-oR-GRm" secondAttribute="trailing" constant="8" id="v9V-TW-Voc"/>
                 <constraint firstItem="ylY-lF-oFq" firstAttribute="leading" secondItem="5by-EJ-3f2" secondAttribute="leading" id="wQB-cU-fmf"/>
+                <constraint firstItem="WtW-4B-IZx" firstAttribute="centerY" secondItem="7wa-9l-gBc" secondAttribute="centerY" id="yL2-qQ-Lgg"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="179.5"/>
+            <point key="canvasLocation" x="139" y="196"/>
         </customView>
     </objects>
 </document>

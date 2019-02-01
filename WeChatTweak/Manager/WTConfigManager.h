@@ -13,6 +13,7 @@
 @interface WTConfigManager : NSObject
 
 @property (nonatomic, assign) BOOL compressedJSONEnabled;
+@property (nonatomic, assign) BOOL voipEnable;
 
 + (instancetype)sharedInstance;
 
